@@ -1,0 +1,17 @@
+React -> divided into Components
+eg:- reuse of cards, same type of blocks.
+structure same ho and we can create and use them again, we call them class components.
+//Interview questions - What are components ? Types of components ?
+
+diff btwn framework and library ? eg of framework- Bootstrap[css], React[js] and library - Java ka scanner[modules][we really need to import, without importing we cant do anything..]
+boostrap is not a feature of css.
+Scanner is a feature of JAVA. Provides functionality..
+//Check whether react is framework or library...[Correct]
+
+React Dom is used to render website..
+Container - a component containing more than one component
+props isliye paas krte haii so that we dont need to create that component again with some other value..
+
+diff btwn container and component ? 
+
+

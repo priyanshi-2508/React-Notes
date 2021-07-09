@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--  It can manipulate UI in highly optimized way..  -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <!-- React k through DOM change krne k kaam aata hai.. -->
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Basically it convert JSX code into JS for browser..Used for JSX Js..  -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        //functional component
+        function Hello({ name }) {
+            // console.log(props);
+            return (
+                <div>
+                    <h1> Hello from Fnctnl Components </h1>
+                    <p>How you doing ?
+                        {name}</p>
+
+                </div>
+            )
+        }
+
+        function Hellos() {
+            return (
+                <div>
+                    <Hello name="pk" />
+                    <Hello name="kk" />
+                    <Hello name="ak" />
+                    <Hello name="sk" />
+                </div>
+            )
+        }
+
+
+
+
+        ReactDOM.render(<Hellos />, document.getElementById('root'));
+    </script>
+
+</body>
+
+</html>
