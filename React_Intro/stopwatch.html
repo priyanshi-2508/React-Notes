@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--  It can manipulate UI in highly optimized way..  -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <!-- React k through DOM change krne k kaam aata hai.. -->
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Basically it convert JSX code into JS for browser..Used for JSX Js..  -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        class StopWatch extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    count: 0,
+                    startDisabled: false,
+                    stopDisabled: true,
+                };
+                this.interval = undefined;
+            }
+
+            //always use arrow function or you will get undefined..
+            start = () => {
+                this.interval = setInterval(() => {
+                    this.setState({
+                        count: this.state.count + 1
+                    })
+                }, 1000);
+
+                this.setState({
+                    startDisabled: true,
+                    stopDisabled: false
+                })
+            }
+            //start and stop disabled hamne isliye use kiya..kyuki agr ham nhii use krte toh setInterval is an async fn..and thatswhy agr kisi ne 2 baar call krdiya toh
+            //vo 2 fn parallely chl jaynge... aur isse time 1 sec  naa bdhkr 2sec bdne lgega..
+
+            stop = () => {
+                clearInterval(this.interval);
+                this.setState({
+                    startDisabled: false,
+                    stopDisabled: true
+                })
+            }
+
+            render() {
+                return (
+                    <div>
+                        <p>{this.state.count}</p>
+                        <button onClick={this.start} disabled={this.state.startDisabled}> Start </button>
+                        <button onClick={this.stop} disabled={this.state.stopDisabled}> Stop </button>
+                    </div>
+                );
+            }
+
+        }
+
+        ReactDOM.render(<StopWatch />, document.getElementById('root'));
+    </script>
+</body>
+
+</html>

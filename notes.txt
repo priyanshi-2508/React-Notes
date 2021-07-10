@@ -1,3 +1,4 @@
+//Day1
 React -> divided into Components
 eg:- reuse of cards, same type of blocks.
 structure same ho and we can create and use them again, we call them class components.
@@ -15,3 +16,9 @@ props isliye paas krte haii so that we dont need to create that component again 
 diff btwn container and component ? 
 
 
+//Day 2
+State - WE dont make global variables...ham yaHAN state m store krvate hai..hr ek component ki apni ek state hai..and jb jb is state mein change aayega..React us component ko re-render krega..
+containers -  won't repeat.
+components - which element will be repeated.
+har component ki apni ek state hoti hai..
+//state.html..

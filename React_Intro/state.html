@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--  It can manipulate UI in highly optimized way..  -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <!-- React k through DOM change krne k kaam aata hai.. -->
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Basically it convert JSX code into JS for browser..Used for JSX Js..  -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // class component
+        class Counter extends React.Component {
+            constructor(props) {
+                // Here we have created state and isme hamne vo variable rkha jo change hogaa..
+                //state is an object and contains key-value pair
+                super(props);
+                this.state = {
+                    count: 0
+                };
+                // this.increment = this.increment.bind(this);  ye tab use krskte hai jb ham normal fn use krna chahte hai
+            }
+
+            // create method
+            increment = () => {
+                //setstate is method already given to make changes in state...is method mein ham ye btana chahte hai ki ham state ki konsi key ko change krna chahte hai..
+                //Way to update an state..We can't do it directly..
+                //this.state.count+=1; ab is way ko setstate se change krna chahiye..
+                console.log(this); // it comes undefined..
+                this.setState({
+                    count: this.state.count + 1
+                })
+            }
+
+            decrement = () => {
+                this.setState({
+                    count: this.state.count - 1
+                })
+            }
+            // class -> button[eventlistener] -> function :- arrow function isiliye use kiya so that "this" class ko point kre..
+            // this ko over write krskte hai..with bind function
+            render() {
+                // this represents class 
+                //this uska lete hai jahan fn call hota hai..na ki jahan define hota hai
+                
+                return (
+                    <div>
+                        <p>{this.state.count}</p>
+                        <button onClick={this.increment}> + </button>
+                        <button onClick={this.decrement}> - </button>
+
+                    </div>
+                );
+            }
+
+        }
+
+        // normal html m hame ise render krna pdta hai..kyuki ye cheej react m nii krni pdti..abhi ham html m likh rhe hai isliye krna pdta..
+        ReactDOM.render(<Counter />, document.getElementById('root'));
+    </script>
+
+</body>
+
+</html>
